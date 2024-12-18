@@ -82,5 +82,13 @@
             },
             "type": "function"
         }
+    },
+    {
+        "id": "e944bb73-339f-40d7-b7b8-25992efa1d74",
+        "timestamp": "2024-12-18T17:31:54.727923Z",
+        "role": "assistant",
+        "source": "tool:edit_smart_contract_frontend_component",
+        "content": "Alright, adding the nominate and cancellation features to the staking contract frontend.",
+        "metadata": {}
     }
 ]
