@@ -6,5 +6,15 @@
         "source": "base_assistant",
         "content": "Welcome to your new project! I can help you edit it however you want. What would you like to do?",
         "metadata": {}
+    },
+    {
+        "id": "4c8dfdd9-b16f-42b3-b498-73fef12b3def",
+        "timestamp": "2024-12-18T17:27:40.030555Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "Substitute this with a frontend component for the staking contract at 0x0744d79f3e8f0a3652d886c9c49cb476a05de248 on polygon. It requires users to have TestToken to approve amount before staking. The TestToken address is 0x2c87f28573824f65f75c8a0437f444605214ae41",
+        "metadata": {
+            "component_id": "Hero1734540647"
+        }
     }
 ]
