@@ -1,0 +1,23 @@
+{
+    "name": "example",
+    "prefix": "%#PLACEHOLDER",
+    "placeholderMappings": {
+        "Header": [
+            "APPLICATION_NAME"
+        ],
+        "Hero": [
+            "HERO_HEADING_TEXT",
+            "HERO_SUBHEADING_TEXT"
+        ],
+        "Footer": [
+            "APPLICATION_NAME",
+            "FOOTER_TEXT"
+        ]
+    },
+    "placeholders": {
+        "APPLICATION_NAME": "StakeLink",
+        "HERO_HEADING_TEXT": "Simplify Your Staking Experience",
+        "HERO_SUBHEADING_TEXT": "Effortlessly manage and interact with staking contracts through our intuitive interface",
+        "FOOTER_TEXT": "\u00a9 2023 StakeLink. Empowering decentralized staking for a more secure blockchain ecosystem."
+    }
+}
