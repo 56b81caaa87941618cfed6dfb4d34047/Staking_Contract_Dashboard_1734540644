@@ -16,5 +16,20 @@
         "metadata": {
             "component_id": "Hero1734540647"
         }
+    },
+    {
+        "id": "0e1a8b92-1a8b-43d8-bd69-89d43da61e7b",
+        "timestamp": "2024-12-18T17:27:42.480983Z",
+        "role": "tool_call",
+        "source": "base_assistant",
+        "content": null,
+        "metadata": {
+            "id": "call_tZnOpwUTAA3Wep8aBua0a5jJ",
+            "function": {
+                "arguments": "{\"component_id\": \"Hero1734540647\", \"sc_address\": \"0x0744d79f3e8f0a3652d886c9c49cb476a05de248\", \"chain_id\": \"POLYGON\", \"change_description\": \"Substitute with a staking contract frontend that requires users to have TestToken to approve the amount before staking. TestToken address is 0x2c87f28573824f65f75c8a0437f444605214ae41\", \"acknowledgement_message\": \"Alright, substituting the component for the staking contract frontend with approval requirement for TestToken.\"}",
+                "name": "EditSmartContractFrontendComponent"
+            },
+            "type": "function"
+        }
     }
 ]
