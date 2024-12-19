@@ -229,14 +229,14 @@ const StakingAndNominationComponent: React.FC = () => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Cantidad para hacer stake"
-            className="w-full p-2 mb-4 text-black rounded-lg"
+            className="w-full p-2 mb-4 text-black rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
           <input
             type="text"
             value={nodes}
             onChange={(e) => setNodes(e.target.value)}
             placeholder="Direcciones de nodos para stake (separados por comas)"
-            className="w-full p-2 mb-4 text-black rounded-lg"
+            className="w-full p-2 mb-4 text-black rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
           <button
             onClick={approveTokens}
@@ -255,7 +255,7 @@ const StakingAndNominationComponent: React.FC = () => {
             value={nominateNodes}
             onChange={(e) => setNominarNodes(e.target.value)}
             placeholder="Direcciones de nodos para nominación (separados por comas)"
-            className="w-full p-2 mb-4 text-black rounded-lg"
+            className="w-full p-2 mb-4 text-black rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
           <button
             onClick={nominate}
