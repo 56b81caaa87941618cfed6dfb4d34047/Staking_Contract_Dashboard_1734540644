@@ -108,5 +108,15 @@
         "source": "base_assistant",
         "content": "I have successfully added the nominate and cancellation features to the staking contract frontend. What would you like to do next?",
         "metadata": {}
+    },
+    {
+        "id": "e57d4c6c-6401-4370-a1b2-afd198c38dfc",
+        "timestamp": "2024-12-19T13:13:20.726183Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "change the background to white",
+        "metadata": {
+            "component_id": "Hero1734540647"
+        }
     }
 ]
