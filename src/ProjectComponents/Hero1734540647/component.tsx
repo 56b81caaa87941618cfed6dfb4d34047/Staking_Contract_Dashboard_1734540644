@@ -79,13 +79,13 @@ const testTokenABI = [
 const StakingAndNominationComponent: React.FC = () => {
   const [amount, setAmount] = React.useState('');
   const [nodes, setNodes] = React.useState('');
-  const [nominateNodes, setNominateNodes] = React.useState('');
-  const [approvalStatus, setApprovalStatus] = React.useState('Not approved');
-  const [stakingStatus, setStakingStatus] = React.useState('Not staked');
-  const [nominateStatus, setNominateStatus] = React.useState('Not nominated');
-  const [unstakeStatus, setUnstakeStatus] = React.useState('Not unstaked');
-  const [cancelUnstakeStatus, setCancelUnstakeStatus] = React.useState('Not cancelled');
-  const [requestProcessUnstakeStatus, setRequestProcessUnstakeStatus] = React.useState('Not requested');
+  const [nominateNodes, setNominarNodes] = React.useState('');
+  const [approvalStatus, setApprovalStatus] = React.useState('No aprobado');
+  const [stakingStatus, setStakingStatus] = React.useState('Sin stake');
+  const [nominateStatus, setNominarStatus] = React.useState('No nominado');
+  const [unstakeStatus, setUnstakeStatus] = React.useState('Sin unstake');
+  const [cancelUnstakeStatus, setCancelUnstakeStatus] = React.useState('No cancelado');
+  const [requestProcessUnstakeStatus, setRequestProcessUnstakeStatus] = React.useState('No solicitado');
   const [provider, setProvider] = React.useState<ethers.providers.Web3Provider | null>(null);
   const [signer, setSigner] = React.useState<ethers.Signer | null>(null);
 
@@ -130,10 +130,10 @@ const StakingAndNominationComponent: React.FC = () => {
       const testTokenContract = new ethers.Contract(testTokenAddress, testTokenABI, signer);
       const tx = await testTokenContract.approve(nodeOpsAddress, ethers.utils.parseEther(amount));
       await tx.wait();
-      setApprovalStatus('Approved');
+      setApprovalStatus('Aprobado');
     } catch (error) {
       console.error("Failed to approve tokens:", error);
-      setApprovalStatus('Approval failed');
+      setApprovalStatus('Aprobación fallida');
     }
   };
 
@@ -147,10 +147,10 @@ const StakingAndNominationComponent: React.FC = () => {
       const nodeArray = nodes.split(',').map(node => ethers.utils.formatBytes32String(node.trim()));
       const tx = await nodeOpsContract.stake(nodeArray, ethers.utils.parseUnits(amount, 18));
       await tx.wait();
-      setStakingStatus('Staked successfully');
+      setStakingStatus('Hacer Staked successfully');
     } catch (error) {
       console.error("Failed to stake:", error);
-      setStakingStatus('Staking failed');
+      setStakingStatus('Stake fallido');
     }
   };
 
@@ -164,10 +164,10 @@ const StakingAndNominationComponent: React.FC = () => {
       const nodeArray = nominateNodes.split(',').map(node => ethers.utils.formatBytes32String(node.trim()));
       const tx = await nodeOpsContract.nominate(nodeArray);
       await tx.wait();
-      setNominateStatus('Nominated successfully');
+      setNominarStatus('Nominard successfully');
     } catch (error) {
       console.error("Failed to nominate:", error);
-      setNominateStatus('Nomination failed');
+      setNominarStatus('Nominación fallida');
     }
   };
 
@@ -180,10 +180,10 @@ const StakingAndNominationComponent: React.FC = () => {
       const nodeOpsContract = new ethers.Contract(nodeOpsAddress, nodeOpsABI, signer);
       const tx = await nodeOpsContract.unstake();
       await tx.wait();
-      setUnstakeStatus('Unstake requested successfully');
+      setUnstakeStatus('Unstake solicitado con éxito');
     } catch (error) {
       console.error("Failed to request unstake:", error);
-      setUnstakeStatus('Unstake request failed');
+      setUnstakeStatus('Solicitud de unstake fallida');
     }
   };
 
@@ -196,10 +196,10 @@ const StakingAndNominationComponent: React.FC = () => {
       const nodeOpsContract = new ethers.Contract(nodeOpsAddress, nodeOpsABI, signer);
       const tx = await nodeOpsContract.cancelUnstake();
       await tx.wait();
-      setCancelUnstakeStatus('Unstake cancelled successfully');
+      setCancelUnstakeStatus('Unstake cancelado con éxito');
     } catch (error) {
       console.error("Failed to cancel unstake:", error);
-      setCancelUnstakeStatus('Cancel unstake failed');
+      setCancelUnstakeStatus('Cancelación de unstake fallida');
     }
   };
 
@@ -212,81 +212,81 @@ const StakingAndNominationComponent: React.FC = () => {
       const nodeOpsContract = new ethers.Contract(nodeOpsAddress, nodeOpsABI, signer);
       const tx = await nodeOpsContract.requestProcessUnstake();
       await tx.wait();
-      setRequestProcessUnstakeStatus('Process unstake requested successfully');
+      setRequestProcessUnstakeStatus('Proceso de unstake solicitado con éxito');
     } catch (error) {
       console.error("Failed to request process unstake:", error);
-      setRequestProcessUnstakeStatus('Request process unstake failed');
+      setRequestProcessUnstakeStatus('Solicitud de proceso de unstake fallida');
     }
   };
 
   return (
     <div className="bg-white py-16 text-black w-full h-full">
       <div className="container mx-auto px-4 flex flex-col items-center h-full">
-        <h1 className="text-4xl font-bold mb-8">Stake, Nominate, and Manage Your TestTokens</h1>
+        <h1 className="text-4xl font-bold mb-8">Hacer Stake, Nominar y Administrar sus TestTokens</h1>
         <div className="w-full max-w-md">
           <input
             type="text"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            placeholder="Amount to stake"
+            placeholder="Cantidad para hacer stake"
             className="w-full p-2 mb-4 text-black rounded-lg"
           />
           <input
             type="text"
             value={nodes}
             onChange={(e) => setNodes(e.target.value)}
-            placeholder="Node addresses for staking (comma-separated)"
+            placeholder="Direcciones de nodos para stake (separados por comas)"
             className="w-full p-2 mb-4 text-black rounded-lg"
           />
           <button
             onClick={approveTokens}
             className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mb-4"
           >
-            Approve TestTokens
+            Aprobar TestTokens
           </button>
           <button
             onClick={stake}
             className="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg mb-4"
           >
-            Stake
+            Hacer Stake
           </button>
           <input
             type="text"
             value={nominateNodes}
-            onChange={(e) => setNominateNodes(e.target.value)}
-            placeholder="Node addresses for nomination (comma-separated)"
+            onChange={(e) => setNominarNodes(e.target.value)}
+            placeholder="Direcciones de nodos para nominación (separados por comas)"
             className="w-full p-2 mb-4 text-black rounded-lg"
           />
           <button
             onClick={nominate}
             className="w-full bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg mb-4"
           >
-            Nominate
+            Nominar
           </button>
           <button
             onClick={unstake}
             className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg mb-4"
           >
-            Request Unstake
+            Solicitar Unstake
           </button>
           <button
             onClick={cancelUnstake}
             className="w-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg mb-4"
           >
-            Cancel Unstake
+            Cancelar Unstake
           </button>
           <button
             onClick={requestProcessUnstake}
             className="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg mb-4"
           >
-            Request Process Unstake
+            Solicitar Proceso de Unstake
           </button>
-          <p className="text-center mb-2">Approval Status: {approvalStatus}</p>
-          <p className="text-center mb-2">Staking Status: {stakingStatus}</p>
-          <p className="text-center mb-2">Nomination Status: {nominateStatus}</p>
-          <p className="text-center mb-2">Unstake Status: {unstakeStatus}</p>
-          <p className="text-center mb-2">Cancel Unstake Status: {cancelUnstakeStatus}</p>
-          <p className="text-center">Request Process Unstake Status: {requestProcessUnstakeStatus}</p>
+          <p className="text-center mb-2">Estado de Aprobación: {approvalStatus}</p>
+          <p className="text-center mb-2">Estado del Stake: {stakingStatus}</p>
+          <p className="text-center mb-2">Estado de Nominación: {nominateStatus}</p>
+          <p className="text-center mb-2">Estado del Unstake: {unstakeStatus}</p>
+          <p className="text-center mb-2">Cancelar Estado del Unstake: {cancelUnstakeStatus}</p>
+          <p className="text-center">Solicitar Proceso de Estado del Unstake: {requestProcessUnstakeStatus}</p>
         </div>
       </div>
     </div>
