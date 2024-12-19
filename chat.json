@@ -210,5 +210,15 @@
         "source": "base_assistant",
         "content": "All the texts in the component have been changed to Spanish. Is there anything else you would like to adjust or add?",
         "metadata": {}
+    },
+    {
+        "id": "b4ee950c-b70c-4302-814c-3a33b3697db9",
+        "timestamp": "2024-12-19T13:15:25.669240Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "The text input boxes do not show a border (may be color conflict). Change it to a good style that is highlighted in this background.",
+        "metadata": {
+            "component_id": "Hero1734540647"
+        }
     }
 ]
